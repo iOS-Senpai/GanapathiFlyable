@@ -19,6 +19,18 @@ final class FlightsSearchViewModel {
     var date = Date()
     
     func searchFlights() async {
-        
+        isLoading = true
+        errorMessage = nil
+        defer {
+            isLoading = false
+        }
+        do {
+            try await Task.sleep(for: .seconds(3))
+            self.flights = MockFlightData.flights
+        } catch is CancellationError {
+            return
+        } catch {
+            errorMessage = error.localizedDescription
+        }
     }
 } //UI State + Search Coordination

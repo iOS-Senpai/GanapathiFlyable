@@ -10,9 +10,10 @@ import Foundation
 struct Flight: Sendable, Identifiable {
     let id: UUID
     let airline: String
+    let flightNumber: String
     let origin: String
     let destination: String
-    let arrival: String
-    let departure: String
-    let price: String
+    let departureTime: Date
+    let arrivalTime: Date
+    let price: Double
 }

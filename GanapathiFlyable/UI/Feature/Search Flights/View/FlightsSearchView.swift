@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct FlightsSearchView: View {
-    @State private var from = ""
-    @State private var to = ""
-    @State private var date = Date()
-    
+   @State var viewModel = FlightsSearchViewModel()
     var body: some View {
         Form {
             Section("Journey") {
-                TextField("From", text: $from)
-                TextField("To", text: $to)
-                DatePicker("Departure", selection: $date, displayedComponents: .date)
+                TextField("From", text: $viewModel.from)
+                TextField("To", text: $viewModel.to)
+                DatePicker("Departure", selection: $viewModel.date, displayedComponents: .date)
             }
             Section {
                 Button("Search Flights") {
