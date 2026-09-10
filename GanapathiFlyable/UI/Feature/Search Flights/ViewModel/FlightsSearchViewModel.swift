@@ -26,6 +26,9 @@ final class FlightsSearchViewModel {
         }
         do {
             try await Task.sleep(for: .seconds(3))
+            guard !from.isEmpty, !to.isEmpty else {
+                throw FlightsSearchError.invalidInput
+            }
             self.flights = MockFlightData.flights
         } catch is CancellationError {
             return
