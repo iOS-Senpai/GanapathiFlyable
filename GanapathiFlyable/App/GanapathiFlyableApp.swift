@@ -11,7 +11,7 @@ import SwiftUI
 struct GanapathiFlyableApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FlightsSearchView()
         }
     }
 }
